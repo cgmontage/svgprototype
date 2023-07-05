@@ -1,0 +1,25 @@
+﻿<polygon points=@polygon.toString() fill=@fill stroke="#fff" @onmouseover="@MouseEnter"
+         @onmouseout="@MouseLeave" @onmouseup="@MouseUp" />
+
+@code {
+    [Parameter]
+    public Polygon polygon { get; set; } = new Polygon(new List<Point>());
+
+    string fill { get; set; } = "#1aaee5";
+
+    public void MouseEnter(MouseEventArgs e)
+    {
+        fill = "#000000";
+    }
+
+    public void MouseLeave(MouseEventArgs e)
+    {
+        fill = "#1aaee5";
+    }
+
+    public void MouseUp(MouseEventArgs e)
+    {
+        if (e.Button == 0)
+            Console.WriteLine(polygon.toString());
+    }
+}
